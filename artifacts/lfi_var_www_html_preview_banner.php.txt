@@ -1,0 +1,37 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    http_response_code(403); // Optional: send 403 Forbidden
+    die('Access denied.');
+}
+
+include('vendor/autoload.php');
+
+// Setup Twig
+$loader = new \Twig\Loader\FilesystemLoader('templates');
+$twig = new \Twig\Environment($loader);
+
+// Get POST data
+$first = $_POST['first'] ?? null;
+
+// Render header
+echo $twig->render('header.html.twig', ['first' => $twig->createTemplate($first)->render()]);
+
+?> - 4
+                      </div>
+                      <div class="card-body">
+                      <h6 class="card-subtitle mb-2 text-body-secondary">Approved: false</h6>
+                      <p class="card-text">Owner-ID: 2 - Votes: 5</p>
+                      </div>
+                    </div>
+                </div>
+                        <a class="btn btn-light mt-4" href="index.php">back</a>
+	</div>
+
+    <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<script src="js/firefly.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+</body>
+</html>

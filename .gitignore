@@ -1,0 +1,26 @@
+# HTB Cobblestone — session loot (never commit)
+notes/
+config/
+
+# Python
+scripts/__pycache__/
+scripts/*.pyc
+
+# Explicit sensitive artifacts
+artifacts/root.txt
+artifacts/user.txt
+artifacts/admin_session.txt
+artifacts/cobble.hash
+artifacts/cobblestone_dump.sql
+artifacts/sqli*
+artifacts/xss_capture.log
+artifacts/*flag*
+artifacts/creds_*
+artifacts/*.hash
+
+# Artifacts: default ignore, allow safe recon / LFI extracts only
+artifacts/**
+!artifacts/
+!artifacts/target_ip.txt
+!artifacts/attacker_ip.txt
+!artifacts/lfi_*.txt
